@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kanakala Mahesh | AI & ML Engineer</title>
+<meta name="description" content="Portfolio of Kanakala Mahesh, a fresher AI & ML engineer building practical machine learning projects.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EDF0F7; --card:#FFFFFF; --ink:#141836; --muted:#555B7A; --line:#D5DAE8;
+  --indigo:#4338CA; --mint:#0F9F8F; --amber:#E8920B; --soft:#E3E6F8;
+  --head:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --body:"DM Sans","Segoe UI",system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--paper:#0F1226;--card:#171B38;--ink:#EDEFFC;--muted:#A0A6C8;--line:#2A2F57;--indigo:#8B85FF;--mint:#3FD0BE;--amber:#F5B445;--soft:#22275A}
+}
+:root[data-theme="dark"]{--paper:#0F1226;--card:#171B38;--ink:#EDEFFC;--muted:#A0A6C8;--line:#2A2F57;--indigo:#8B85FF;--mint:#3FD0BE;--amber:#F5B445;--soft:#22275A}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{font-family:var(--body);background:var(--paper);color:var(--ink);line-height:1.65;font-size:17px;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--head);line-height:1.1;letter-spacing:-.02em}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--indigo);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+section{padding:88px 0}
+h2{font-size:clamp(1.9rem,4vw,2.7rem);margin-bottom:12px}
+.lead{color:var(--muted);max-width:60ch;margin-bottom:40px}
+
+/* nav */
+header{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{font-family:var(--head);font-weight:800;font-size:1.2rem;text-decoration:none}
+.logo i{font-style:normal;color:var(--indigo)}
+.links{display:flex;gap:26px;list-style:none;align-items:center}
+.links a{text-decoration:none;font-size:.95rem;font-weight:500;color:var(--muted)}
+.links a:hover{color:var(--ink)}
+.icon-btn{background:none;border:1px solid var(--line);color:var(--ink);border-radius:10px;width:40px;height:40px;cursor:pointer;font-size:1.05rem}
+#menu{display:none}
+@media(max-width:860px){
+  #menu{display:block}
+  .links{display:none;position:absolute;top:68px;left:0;right:0;background:var(--paper);border-bottom:1px solid var(--line);flex-direction:column;padding:20px 24px;gap:16px;align-items:flex-start}
+  .links.open{display:flex}
+}
+
+/* hero */
+.hero{padding:72px 0 88px}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr}}
+.status{display:inline-flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:99px;padding:6px 16px 6px 12px;font-size:.9rem;font-weight:500;margin-bottom:24px}
+.status b{width:9px;height:9px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 0 var(--mint);animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 9px transparent}100%{box-shadow:0 0 0 0 transparent}}
+h1{font-size:clamp(2.8rem,7.5vw,5.4rem);font-weight:800;margin-bottom:20px}
+h1 span{display:block;color:var(--indigo)}
+.tag{font-size:1.2rem;font-weight:500;margin-bottom:12px}
+.intro{color:var(--muted);max-width:52ch;margin-bottom:32px}
+.btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-block;padding:13px 26px;border-radius:12px;font-weight:600;text-decoration:none;border:2px solid var(--ink);transition:transform .15s,background .15s;cursor:pointer;font-family:var(--body);font-size:1rem}
+.btn.pri{background:var(--ink);color:var(--paper)}
+.btn.sec{background:transparent;color:var(--ink)}
+.btn:hover{transform:translateY(-2px)}
+
+/* live demo */
+.demo{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:26px;box-shadow:0 24px 60px -28px rgba(67,56,202,.45)}
+.demo h3{font-size:1.15rem;margin-bottom:4px}
+.demo small{color:var(--muted);display:block;margin-bottom:16px}
+.demo textarea{width:100%;height:96px;border-radius:12px;border:1px solid var(--line);background:var(--paper);color:var(--ink);padding:12px 14px;font:inherit;font-size:.97rem;resize:none}
+.meter{height:14px;border-radius:99px;background:var(--soft);margin:18px 0 8px;overflow:hidden}
+.meter div{height:100%;width:3%;background:var(--mint);border-radius:99px;transition:width .45s cubic-bezier(.2,.8,.2,1),background .3s}
+.verdict{display:flex;justify-content:space-between;font-weight:600;font-size:.97rem}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.chips button{background:var(--soft);color:var(--ink);border:0;border-radius:99px;padding:6px 14px;font:inherit;font-size:.85rem;cursor:pointer}
+
+/* generic cards */
+.grid{display:grid;gap:22px}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g2{grid-template-columns:repeat(2,1fr)}
+@media(max-width:900px){.g3{grid-template-columns:1fr 1fr}}
+@media(max-width:620px){.g3,.g2{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px}
+.card h3{font-size:1.25rem;margin-bottom:8px}
+.card p{color:var(--muted);font-size:.96rem}
+
+/* about */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+@media(max-width:820px){.about{grid-template-columns:1fr}}
+.about p{color:var(--muted);margin-bottom:16px}
+.goal{border-left:4px solid var(--indigo);padding-left:18px;margin-top:8px}
+.goal b{display:block;color:var(--ink);margin-bottom:2px}
+
+/* skills */
+.skill h3{display:flex;align-items:center;gap:10px}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.pills span{background:var(--soft);border-radius:8px;padding:5px 12px;font-size:.88rem;font-weight:500}
+
+/* projects */
+.proj{padding:0;overflow:hidden;display:flex;flex-direction:column}
+.shot{height:170px;position:relative;display:flex;align-items:flex-end;padding:16px;color:#fff;font-family:var(--head);font-weight:700;font-size:.95rem}
+.shot.a{background:linear-gradient(135deg,#4338CA,#7C6CF5)}
+.shot.b{background:linear-gradient(135deg,#0F9F8F,#2BC4B2)}
+.shot.c{background:linear-gradient(135deg,#C2710A,#F0A23A)}
+.shot::before{content:"";position:absolute;inset:18px 18px 52px;border:2px dashed rgba(255,255,255,.55);border-radius:10px}
+.pbody{padding:22px 26px 26px;display:flex;flex-direction:column;gap:12px;flex:1}
+.pbody .pills{margin-top:0}
+.plinks{display:flex;gap:18px;margin-top:auto;font-weight:600;font-size:.92rem}
+.plinks a{text-decoration:underline;text-underline-offset:4px}
+
+/* timeline */
+.tl{border-left:2px solid var(--line);margin-left:6px;display:grid;gap:26px}
+.tl article{position:relative;padding-left:28px}
+.tl article::before{content:"";position:absolute;left:-8px;top:8px;width:14px;height:14px;border-radius:50%;background:var(--indigo);border:3px solid var(--paper)}
+.tl time{font-size:.88rem;color:var(--muted);font-weight:500}
+.tl h3{font-size:1.2rem;margin:2px 0 4px}
+.tl p{color:var(--muted);font-size:.96rem;max-width:62ch}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+@media(max-width:860px){.two{grid-template-columns:1fr;gap:72px}}
+.two h2{font-size:1.9rem;margin-bottom:28px}
+
+/* resume */
+.resume{background:var(--ink);color:var(--paper);border-radius:26px;padding:48px;display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap}
+.resume h2{margin-bottom:6px}
+.resume p{opacity:.78;max-width:46ch}
+.resume .btn{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+
+/* contact */
+.contact{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px}
+@media(max-width:860px){.contact{grid-template-columns:1fr}}
+.reach{list-style:none;display:grid;gap:14px;margin-top:8px}
+.reach a{text-decoration:none;font-weight:500;display:flex;gap:12px;align-items:center}
+.reach a:hover{color:var(--indigo)}
+.reach span{width:38px;height:38px;border-radius:10px;background:var(--soft);display:grid;place-items:center;font-size:.9rem;font-weight:700}
+form{display:grid;gap:16px}
+label{font-weight:600;font-size:.92rem;display:grid;gap:6px}
+input,textarea.f{font:inherit;padding:13px 15px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--ink);width:100%}
+textarea.f{min-height:140px;resize:vertical}
+input:focus,textarea:focus{border-color:var(--indigo)}
+.hp{position:absolute;left:-9999px}
+#note{min-height:1.5em;font-weight:500;font-size:.95rem}
+#note.ok{color:var(--mint)} #note.err{color:#D6455D}
+footer{border-top:1px solid var(--line);padding:30px 0;color:var(--muted);font-size:.92rem}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+/* the one entrance: hero headline */
+.hero h1,.hero .tag,.hero .intro,.hero .btns,.hero .status{animation:rise .7s cubic-bezier(.2,.8,.2,1) both}
+.hero .tag{animation-delay:.1s}.hero .intro{animation-delay:.18s}.hero .btns{animation-delay:.26s}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav aria-label="Main">
+      <a class="logo" href="#home">mahesh<i>.ai</i></a>
+      <ul class="links" id="links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><button class="icon-btn" id="theme" aria-label="Toggle dark mode">◐</button></li>
+      </ul>
+      <button class="icon-btn" id="menu" aria-label="Open menu" aria-expanded="false">☰</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+<!-- HOME -->
+<section class="hero" id="home">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="status"><b></b>Open to AI/ML internships and fresher roles</div>
+      <h1>Kanakala Mahesh <span>AI &amp; ML Engineer</span></h1>
+      <p class="tag">I turn messy data into models that people can actually use.</p>
+      <p class="intro">Fresher machine learning engineer from Sandip University. I build classifiers, reasoning systems and clean web interfaces, and I like shipping projects end to end.</p>
+      <div class="btns">
+        <a class="btn pri" href="#projects">View my projects</a>
+        <a class="btn sec" href="#contact">Contact me</a>
+      </div>
+    </div>
+
+    <!-- Live demo: a tiny spam classifier running in the browser -->
+    <div class="demo" aria-labelledby="demo-title">
+      <h3 id="demo-title">Try my spam detector</h3>
+      <small>A small word-weight model running in your browser. Type a message.</small>
+      <label for="msg" class="hp" style="position:absolute">Message</label>
+      <textarea id="msg" placeholder="Type or paste a message...">Congratulations! You won a free prize. Click now to claim your reward.</textarea>
+      <div class="meter" role="progressbar" aria-label="Spam probability" aria-valuemin="0" aria-valuemax="100"><div id="bar"></div></div>
+      <div class="verdict"><span id="label">Analyzing...</span><span id="pct">0%</span></div>
+      <div class="chips">
+        <button type="button" data-t="Hi Mahesh, can we move tomorrow's lab session to 3 PM?">Normal message</button>
+        <button type="button" data-t="URGENT: your bank account is blocked. Verify now to win cash!">Scam message</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap about">
+    <div>
+      <h2>About me</h2>
+      <p>I'm a computer science student focused on artificial intelligence and machine learning. I enjoy the full path from raw data and model training to a working interface someone can click.</p>
+      <p>My coursework in data structures, discrete mathematics and knowledge representation gives me a solid base. My projects apply it to real problems like spam filtering, scheduling and information retrieval.</p>
+    </div>
+    <div>
+      <div class="card" style="margin-bottom:22px">
+        <h3>Career interests</h3>
+        <p>Machine learning, natural language processing, knowledge-based AI, and MLOps basics for deploying models.</p>
+      </div>
+      <div class="goal"><b>Goals</b><p style="margin:0">Join an AI team as a junior engineer, ship a model to production within my first year, and contribute to open-source ML tools.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" style="background:var(--card);border-block:1px solid var(--line)">
+  <div class="wrap">
+    <h2>Skills</h2>
+    <p class="lead">The tools I use to build and ship machine learning work.</p>
+    <div class="grid g3">
+      <div class="card skill"><h3>Programming</h3><div class="pills"><span>Python</span><span>C++</span><span>Java</span><span>SQL</span><span>JavaScript</span></div></div>
+      <div class="card skill"><h3>ML &amp; AI</h3><div class="pills"><span>Supervised learning</span><span>NLP</span><span>Feature engineering</span><span>Model evaluation</span><span>Knowledge representation</span></div></div>
+      <div class="card skill"><h3>Libraries &amp; frameworks</h3><div class="pills"><span>NumPy</span><span>Pandas</span><span>Scikit-learn</span><span>TensorFlow</span><span>PyTorch</span><span>NLTK</span></div></div>
+      <div class="card skill"><h3>Web technologies</h3><div class="pills"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Flask</span><span>Streamlit</span></div></div>
+      <div class="card skill"><h3>Databases</h3><div class="pills"><span>MySQL</span><span>SQLite</span><span>MongoDB</span></div></div>
+      <div class="card skill"><h3>Tools</h3><div class="pills"><span>Git &amp; GitHub</span><span>Jupyter</span><span>VS Code</span><span>Google Colab</span><span>Vercel</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="wrap">
+    <h2>Projects</h2>
+    <p class="lead">Three projects from my coursework. Replace the dashed boxes with your screenshots and update the links.</p>
+    <div class="grid g3">
+      <article class="card proj">
+        <!-- Replace this div with: <img src="assets/spam-detector.png" alt="Spam detector screenshot"> -->
+        <div class="shot a">Screenshot: Spam detector</div>
+        <div class="pbody">
+          <h3>AI Spam Message Detector</h3>
+          <p>Classifies messages as spam or safe using text cleaning, TF-IDF features and a Naive Bayes model, with a probability score for each message.</p>
+          <div class="pills"><span>Python</span><span>Scikit-learn</span><span>NLTK</span></div>
+          <div class="plinks"><a href="https://github.com/your-username/spam-detector" target="_blank" rel="noopener">GitHub</a><a href="#" target="_blank" rel="noopener">Live demo</a></div>
+        </div>
+      </article>
+      <article class="card proj">
+        <div class="shot b">Screenshot: Semantic network</div>
+        <div class="pbody">
+          <h3>Library Semantic Network</h3>
+          <p>A knowledge representation website that models books, authors, members and loans as a semantic network, and answers questions by following links between concepts.</p>
+          <div class="pills"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+          <div class="plinks"><a href="https://github.com/your-username/library-semantic-network" target="_blank" rel="noopener">GitHub</a><a href="#" target="_blank" rel="noopener">Live demo</a></div>
+        </div>
+      </article>
+      <article class="card proj">
+        <div class="shot c">Screenshot: EV charging</div>
+        <div class="pbody">
+          <h3>EV Charging Station Manager</h3>
+          <p>Schedules vehicles with a circular queue and picks the highest priority car with a heap, showing each data structure working step by step.</p>
+          <div class="pills"><span>Data structures</span><span>JavaScript</span><span>CSS</span></div>
+          <div class="plinks"><a href="https://github.com/your-username/ev-charging-manager" target="_blank" rel="noopener">GitHub</a><a href="#" target="_blank" rel="noopener">Live demo</a></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION + EXPERIENCE -->
+<section id="education" style="background:var(--card);border-block:1px solid var(--line)">
+  <div class="wrap two">
+    <div>
+      <h2>Education</h2>
+      <div class="tl">
+        <article>
+          <time>[Start year] to [End year]</time>
+          <h3>B.Tech, [Your branch: e.g. AI &amp; ML]</h3>
+          <p>Sandip University. Coursework in Data Structures, Discrete Mathematics and Logic, Fundamentals of AI, and Knowledge Representation and Reasoning. CGPA: [add]</p>
+        </article>
+        <article>
+          <time>[Year]</time>
+          <h3>Higher secondary (12th)</h3>
+          <p>[School name]. [Percentage] with a focus on Mathematics and Science.</p>
+        </article>
+      </div>
+    </div>
+    <div id="experience">
+      <h2>Experience</h2>
+      <div class="tl">
+        <article>
+          <time>[Month Year] to [Month Year]</time>
+          <h3>[Internship or training title]</h3>
+          <p>[Company]. Describe what you built and the result, for example: trained a classifier that reached 96% accuracy.</p>
+        </article>
+        <article>
+          <time>2026</time>
+          <h3>University micro-projects</h3>
+          <p>Built and presented AI, data structures and knowledge representation projects, working both solo and in a team.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+  <div class="wrap">
+    <h2>Achievements &amp; certifications</h2>
+    <p class="lead">Add your real certificates below. Delete the cards you don't need.</p>
+    <div class="grid g2">
+      <div class="card"><h3>Certification</h3><p>[Machine Learning course: Coursera, NPTEL or similar] with issue year and certificate link.</p></div>
+      <div class="card"><h3>Hackathon</h3><p>[Hackathon name]. Describe your role and the result.</p></div>
+      <div class="card"><h3>Workshop</h3><p>[Workshop on AI, Python or data science] hosted by [organizer].</p></div>
+      <div class="card"><h3>Competition or other</h3><p>[Coding contest, paper presentation or academic award.]</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- RESUME -->
+<section id="resume" style="padding-top:0">
+  <div class="wrap">
+    <div class="resume">
+      <div>
+        <h2>My resume</h2>
+        <p>One page with my education, skills and projects. Put your PDF in the project folder as <b>resume.pdf</b>.</p>
+      </div>
+      <div class="btns">
+        <a class="btn" href="resume.pdf" target="_blank" rel="noopener">View resume</a>
+        <a class="btn" href="resume.pdf" download>Download PDF</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="background:var(--card);border-top:1px solid var(--line)">
+  <div class="wrap contact">
+    <div>
+      <h2>Contact me</h2>
+      <p class="lead" style="margin-bottom:20px">Have an internship, project or question? Send a message and I'll reply soon.</p>
+      <ul class="reach">
+        <li><a href="mailto:your.email@example.com"><span>@</span>your.email@example.com</a></li>
+        <li><a href="https://www.linkedin.com/in/your-profile" target="_blank" rel="noopener"><span>in</span>LinkedIn</a></li>
+        <li><a href="https://github.com/your-username" target="_blank" rel="noopener"><span>Gh</span>GitHub</a></li>
+      </ul>
+    </div>
+    <form id="form" novalidate>
+      <label>Your name<input type="text" name="name" autocomplete="name" required></label>
+      <label>Your email<input type="email" name="email" autocomplete="email" required></label>
+      <label>Message<textarea class="f" name="message" required></textarea></label>
+      <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button class="btn pri" type="submit" id="send">Send message</button>
+      <p id="note" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr"></span> Kanakala Mahesh</span>
+    <span>Built with HTML, CSS and JavaScript. Hosted on Vercel.</span>
+  </div>
+</footer>
+
+<script>
+// ---- Navigation, theme, year
+const links=document.getElementById('links'),menu=document.getElementById('menu');
+menu.onclick=()=>{const o=links.classList.toggle('open');menu.setAttribute('aria-expanded',o)};
+links.addEventListener('click',e=>{if(e.target.tagName==='A'){links.classList.remove('open');menu.setAttribute('aria-expanded',false)}});
+document.getElementById('theme').onclick=()=>{
+  const r=document.documentElement,dark=getComputedStyle(r).getPropertyValue('--paper').trim()==='#0F1226';
+  r.dataset.theme=dark?'light':'dark';
+};
+document.getElementById('yr').textContent=new Date().getFullYear();
+
+// ---- Spam detector demo (word-weight logistic model)
+const W={free:1.4,win:1.5,won:1.7,winner:1.7,prize:1.8,cash:1.5,urgent:1.6,claim:1.5,click:1.1,now:.7,offer:1.1,
+  congratulations:1.2,reward:1.4,verify:1.2,blocked:1.3,account:.6,bank:.7,lottery:2,limited:.9,'$':1,'!':.5,
+  hi:-.9,thanks:-1,meeting:-1.2,tomorrow:-.8,lab:-1,class:-1,session:-1,please:-.4,can:-.4,we:-.5,assignment:-1.2};
+const msg=document.getElementById('msg'),bar=document.getElementById('bar'),
+      label=document.getElementById('label'),pct=document.getElementById('pct');
+function score(){
+  const t=msg.value.toLowerCase(),words=t.match(/[a-z$]+/g)||[];
+  let z=-2.2;
+  words.forEach(w=>{if(W[w])z+=W[w]});
+  z+=(t.match(/!/g)||[]).length*W['!'];
+  if(/https?:\/\/|www\./.test(t))z+=1.2;
+  const p=t.trim()?1/(1+Math.exp(-z)):0,v=Math.round(p*100);
+  bar.style.width=Math.max(v,3)+'%';
+  bar.style.background=v>65?'#D6455D':v>35?'var(--amber)':'var(--mint)';
+  pct.textContent=v+'%';
+  label.textContent=!t.trim()?'Waiting for a message':v>65?'Likely spam':v>35?'Suspicious':'Looks safe';
+  bar.parentElement.setAttribute('aria-valuenow',v);
+}
+msg.addEventListener('input',score);
+document.querySelectorAll('.chips button').forEach(b=>b.onclick=()=>{msg.value=b.dataset.t;score()});
+score();
+
+// ---- Contact form
+// To receive messages by email: create a free form at formspree.io and paste your endpoint here.
+// Leave it empty and the form opens the visitor's email app instead.
+const FORM_ENDPOINT='';        // e.g. 'https://formspree.io/f/xxxxxxx'
+const MY_EMAIL='your.email@example.com';
+const form=document.getElementById('form'),note=document.getElementById('note'),send=document.getElementById('send');
+const say=(t,c)=>{note.textContent=t;note.className=c||''};
+form.addEventListener('submit',async e=>{
+  e.preventDefault();
+  const d=Object.fromEntries(new FormData(form));
+  if(d._gotcha)return;
+  if(!d.name.trim()||!d.message.trim()){say('Enter your name and a message.','err');return}
+  if(!/^\S+@\S+\.\S+$/.test(d.email)){say('Enter a valid email address, like name@example.com.','err');return}
+  if(!FORM_ENDPOINT){
+    location.href=`mailto:${MY_EMAIL}?subject=${encodeURIComponent('Portfolio message from '+d.name)}&body=${encodeURIComponent(d.message+'\n\nFrom: '+d.name+' ('+d.email+')')}`;
+    say('Opening your email app to send the message.','ok');return;
+  }
+  send.disabled=true;say('Sending...');
+  try{
+    const r=await fetch(FORM_ENDPOINT,{method:'POST',headers:{'Accept':'application/json','Content-Type':'application/json'},body:JSON.stringify(d)});
+    if(!r.ok)throw 0;
+    form.reset();say('Message sent. I will reply soon.','ok');
+  }catch{say('Message not sent. Check your connection and try again, or email me directly.','err')}
+  send.disabled=false;
+});
+</script>
+</body>
+</html>
